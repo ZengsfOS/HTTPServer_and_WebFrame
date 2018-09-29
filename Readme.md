@@ -17,30 +17,23 @@
 > 3. 将需要的数据反馈给httpserver
 >
 ## 目录图
-```graph
-graph TD;
-	project-->httpserver;
-	project-->WebFrame;
-	httpserver-->HttpServer.py;
-	httpserver-->setting.py;
-	WebFrame-->static;
-	WebFrame-->views.py;
-	WebFrame-->urls.py;
-	WebFrame-->settings.py;
-	WebFrame-->WebFrame.py
-```
----
 ```flow
-	st=>start: 开始
-	e=>end: 结束
-	op=>operation: 操作
-	sub=>subroutine: 子程序
-	cond=>condition: 是或者不是?
-	io=>inputoutput: 输出
+st=start:Start
+i=inputoutput:输入年份n
+cond1=condition:n能否被4整除？
+cond2=condition:n能否被100整除？
+cond3=condition:n能否被400整除？
+o1=inputoutput:输出非闰年
+o2=inputoutput:输出非闰年
+o3=inputoutput:输出闰年
+o4=inputoutput:输出闰年
+e=end
 
-	st(right)->op->cond
-	cond(yes)->io(right)->e
-	cond(no)->sub(right)->op
+st-i-cond1
+cond1(no)-o1-e
+cond1(yes)-cond2
+cond2(no)-o3-e
+cond2(yes)-cond3
+cond3(yes)-o2-e
+cond3(no)-o4-e
 ```
-
-
